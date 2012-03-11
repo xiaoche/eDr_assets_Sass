@@ -1,0 +1,203 @@
+/*!
+ * Utility Classes
+ */
+
+/* ========== clearfix ========== */
+.clearfix {
+  @include clearfix;
+}
+
+/* ========== float ========== */
+.float-l {
+  float: left;
+}
+.float-r {
+  float: right;
+}
+
+/* ========== Hide / Show ========== */
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.inline-show {
+  display: inline-block;
+}
+
+/* ========== text-align ========== */
+.align-l {
+  text-align: left;
+}
+.align-c {
+  text-align: center;
+}
+.align-r {
+  text-align: right;
+}
+
+/* ========== nowrap ========== */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* ========== disabled ========== */
+.disabled {
+  cursor: default;
+}
+a.disabled:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
+/* ========== input / textarea ========== */
+.input {
+  width: 210px;
+  height: 18px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  @include box-shadow(0 1px 1px rgba(0, 0, 0, .075) inset);
+  color: $gray;
+  line-height: 1;
+
+  &:focus {
+    border-color: $gray-light;
+    @include box-shadow(0 1px 1px rgba(0, 0, 0, .075) inset, 0 0 8px rgba(0, 0, 0, .1));
+    outline: 0;
+    outline: thin dotted \9;
+  }
+
+  &.disabled, &[disabled], &[readonly] {
+    border-color: #ddd;
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+  }
+}
+textarea.input {
+  height: auto;
+  line-height: 1.5;
+}
+.input-mini { width: 60px; }
+.input-small { width: 90px; }
+.input-medium { width: 150px; }
+.input-large { width: 210px; }
+.input-xlarge { width: 270px; }
+.input-xxlarge { width: 530px; }
+
+/* ========== button ========== */
+.btn {
+  display: inline-block;
+  padding: 3px 12px 2px;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  @include btn-colors($white, darken($white, 10%));
+  @include box-shadow(0 1px rgba(255, 255, 255, .2) inset, 0 1px 2px rgba(0, 0, 0, .1));
+  color: $gray;
+  font-size: 15px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, .75);
+  line-height: 23px;
+  cursor: pointer;
+
+  &:hover {
+    color: $gray;
+    text-decoration: none;
+    background-position: 0 -15px;
+    @include transition(background-position .1s linear);
+  }
+
+  &.disabled, &[disabled] {
+    background-image: none;
+    @include box-shadow(none);
+    @include opacity(0.65);
+    color: lighten($gray, 15%);
+    cursor: default;
+
+    &:hover {
+      color: lighten($gray, 15%);
+    }
+  }
+}
+button.btn {
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  *padding: 2px 1px 0;
+  *line-height: 22px;
+}
+
+// Color
+.btn-red, .btn-red:hover,
+.btn-green, .btn-green:hover,
+.btn-orange, .btn-orange:hover {
+  color: $white;
+  text-shadow: 0 -1px rgba(0, 0, 0, .25);
+}
+.btn-red {
+  @include btn-colors(#ee5f5b, $red);
+}
+.btn-green {
+  @include btn-colors(#a0e028, $green);
+}
+.btn-orange {
+  @include btn-colors(lighten($orange, 15%), $orange);
+}
+
+/* ========== Tabs and Pills ========== */
+.nav-tabs, .nav-pills {
+  @include clearfix;
+
+  li {
+    float: left;
+  }
+
+  a {
+    display: block;
+    margin-right: 2px;
+    padding: 6px 15px;
+    &:hover {
+      background-color: $gray-lighter;
+      text-decoration: none;
+    }
+  }
+}
+.nav-tabs {
+  border-bottom: 1px solid #ddd;
+
+  li {
+    margin-bottom: -1px;
+  }
+
+  a {
+    border: 1px solid transparent;
+    _border-color: $white;
+    border-radius: 4px 4px 0 0;
+    &:hover {
+      border-color: $gray-lighter $gray-lighter #ddd;
+    }
+  }
+
+  .current a, .current a:hover {
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    background-color: $white;
+    color: $gray;
+    cursor: default;
+  }
+}
+.nav-pills {
+  a {
+    border-radius: 5px;
+  }
+
+  .current a, .current a:hover {
+    background-color: $link-color;
+    color: $white;
+    cursor: default;
+  }
+}
