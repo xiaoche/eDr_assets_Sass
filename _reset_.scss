@@ -10,7 +10,7 @@
 html {
   background: $white;
   color: $text-color;
-  -webkit-text-size-adjust: 100%;
+  @include text-size-adjust;
 }
 
 body,
@@ -24,8 +24,10 @@ input, select, textarea {
 }
 
 a {
+  color: $link-color;
   text-decoration: none;
   &:hover {
+    color: $link-color-hover;
     text-decoration: underline;
   }
 }

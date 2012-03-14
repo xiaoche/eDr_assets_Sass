@@ -105,3 +105,11 @@
     }
   }
 }
+
+
+// Set text-size-adjust property for mobile devices
+@mixin text-size-adjust($value: 100%) {
+  @each $prefix in 'webkit', 'moz', 'ms' {
+    -#{$prefix}-text-size-adjust: $value;
+  }
+}
